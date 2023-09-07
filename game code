@@ -1,0 +1,33 @@
+def check_board(board):
+    for i in range(3):
+        if board[i][0]==board[i][1]==board[i][2]:
+            return board[i][0]
+   
+    for c in range(3):
+        if board[0][c]==board[1][c]==board[2][c]:
+            return board[0][c]
+           
+    if board[0][0]==board[1][1]==board[2][2]:
+        return board[0][0]
+   
+    if board[0][2]==board[1][1]==board[2][0]:
+        return board[2][0]
+
+
+game_list = []
+
+for i in range(3):
+    game = input().split()
+    game_list.append(game)
+    
+res = check_board(game_list)
+
+if res is None:
+    print("Tie")
+   
+elif res.upper()=="X":
+    print("first player Wins")
+   
+elif res.upper()=="O":
+    print("second player Wins")
+    
